@@ -16,6 +16,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 
 class Payzaty_WC_Payment extends WC_Payment_Gateway {
+
+	/**
+	 * checkbox true value
+	 *
+	 * @var		string
+	 * @since   1.0.0
+	 */
+	private $checkbox_true_val =  'yes';
+
 	public function __construct(){
 		// Set General Payment Method Data
 		$this->id = 'payzaty';
@@ -39,13 +48,18 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 	 *
 	 * @access	private
 	 * @since	1.0.0
-	 * @return	void
 	 */
 	private function add_hooks(){
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 		add_action( 'woocommerce_api_wc_gateway_paypal', array( $this, 'check_ipn_response' ) );
 	}
 
+	/**
+	 * Registers WooCommerce Admin Fields
+	 *
+	 * @access	public
+	 * @since	1.0.0
+	 */
 	public function init_form_fields()
 	{
 		$this->form_fields = array(
@@ -53,13 +67,19 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 				'title' => __( 'Enable/Disable', 'payzaty' ),
 				'type' => 'checkbox',
 				'label' => __( 'Enable PayZaty Payment Gateway', 'payzaty' ),
-				'default' => 'yes'
+				'default' => $this->checkbox_true_val,
 			),
 			'title' => array(
 				'title' => __( 'Title', 'payzaty' ),
 				'type' => 'text',
 				'description' => __( 'This controls the title which will appears in chechout page.', 'payzaty' ),
 				'default' => __( 'PayZaty Payment Gateway', 'payzaty' ),
+			),
+			'sandbox' => array(
+				'title' => __( 'Enable Sandbox', 'payzaty' ),
+				'type' => 'checkbox',
+				'label' => __( 'Sandbox enables a testing environment to test the whole process before you go production.', 'payzaty' ),
+				'default' => $this->checkbox_true_val,
 			),
 			'merchant_id' => array(
 				'title' => __( 'Merchant No', 'payzaty' ),
@@ -72,6 +92,12 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 		);			
 	}
 
+	/**
+	 * Process the payment
+	 *
+	 * @access	public
+	 * @since	1.0.0
+	 */
 	public function process_payment( $order_id ) {
 		$billing_details =  $this->billing_details($order_id);
 		if($billing_details ==  false){
@@ -91,6 +117,16 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 		);
 	}
 
+	/**
+	 * billing_details 
+	 * 
+	 * @access public
+	 * @since	1.0.0
+	 * 
+	 * @param	string $order_id is the current order id
+	 * 
+	 * @return	array prepared array of the billings details contains all the required data
+	 */
 	public function billing_details($order_id){
 		$order = new WC_Order( $order_id );
 		
@@ -108,13 +144,17 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 		);
 	}
 
-
-	public function get_response_url($order_id){
+	/**
+	 * get the the website url prepared to recieve the payzaty response
+	 * check the class-payzaty-api
+	 *
+	 */
+	 public function get_response_url($order_id){
 		return get_rest_url() . 'wc/v3/payzaty_confirmation/'.$order_id;
 	}
 
 	public function get_checkout_data($billing_details){
-		$api_url = 'https://www.payzaty.com/payment/checkout';			
+		$api_url = $this->get_api_url( $this->get_option('sandbox') );
 		$headers = array(
 		  'X-Source' => 8,
 		  'X-Build' => 1,
@@ -124,14 +164,13 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 		  'X-SecretKey' => $this->get_option('secret_key') , 
 		  'Content-Type' => 'application/x-www-form-urlencoded',
 		);
-		echo "sss " .  
 		$response = wp_remote_post( 
 		  $api_url,
 		  array(
 			'timeout' => 10,
 			'headers' => $headers,
-			'body'        => $billing_details,
-			'method'      => 'POST',
+			'body' => $billing_details,
+			'method' => 'POST',
 		  )
 		);
 		$body = wp_remote_retrieve_body($response);
@@ -141,5 +180,9 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 			return array('id' => $body['checkoutId'] , 'url' => $body['checkoutUrl']);
 		}
 		return false;
+	}
+
+	public function get_api_url($sandbox){
+		return $sandbox === $this->checkbox_true_val ? 'https://sandbox.payzaty.com/payment/checkout' : 'https://www.payzaty.com/payment/checkout';
 	}
 }
