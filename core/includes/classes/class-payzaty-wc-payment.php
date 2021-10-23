@@ -100,17 +100,22 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 	 */
 	public function process_payment( $order_id ) {
 		$billing_details =  $this->billing_details($order_id);
+
 		if($billing_details ==  false){
 			wc_add_notice( __('Missing Data' , 'payzaty')  , 'error' );
 			return;
 		}
 
-		$checkout_data = $this->get_checkout_data($billing_details);
-
+		$connection = new Payzaty_Gate_Way_API_Connecting( $this->get_option('sandbox'), $this->get_option('merchant_id'), $this->get_option('secret_key') );
+		$checkout_data = $connection->create_new_chechout_order( $billing_details, $order_id);
+		
 		if($checkout_data === false){
-			wc_add_notice( __('Some thing Went Wrong' , 'payzaty')  , 'error' );
+			wc_add_notice( __('Some things went wrong when connecting to Payzaty, Please try again.' , 'payzaty')  , 'error' );
 			return;
 		}
+
+		update_post_meta( $order_id, 'payzaty_checkout_id', $checkout_data['checkout_id'] );
+
 		return array(
 			'result' => 'success',
 			'redirect' => $checkout_data['url']
@@ -129,60 +134,18 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 	 */
 	public function billing_details($order_id){
 		$order = new WC_Order( $order_id );
-		
+
 		return array(
-			'Name'  => $_POST['billing_first_name'] . ' ' . $_POST['billing_last_name']  ,
-			'Email' => $_POST['billing_email'],
-			'PhoneCode' => '000',
-			'PhoneNumber' => $_POST['billing_phone'],
+			'Name'  => $order->get_billing_first_name(). ' ' . $order->get_billing_last_name(),
+			'Email' => $order->get_billing_email(),
+			'PhoneCode' => '000', // no more codes untill now
+			'PhoneNumber' => $order->get_billing_phone(),
 			'Amount' => $order->get_total(),
-			'CurrencyID' => 1,
+			'CurrencyID' => 1, // no more curruncies untill now
 			'UDF1' => $order_id,
 			'UDF2' => '',
 			'UDF3' => '',
-			'ResponseUrl' => $this->get_response_url($order_id),
 		);
 	}
 
-	/**
-	 * get the the website url prepared to recieve the payzaty response
-	 * check the class-payzaty-api
-	 *
-	 */
-	 public function get_response_url($order_id){
-		return get_rest_url() . 'wc/v3/payzaty_confirmation/'.$order_id;
-	}
-
-	public function get_checkout_data($billing_details){
-		$api_url = $this->get_api_url( $this->get_option('sandbox') );
-		$headers = array(
-		  'X-Source' => 8,
-		  'X-Build' => 1,
-		  'X-Version' => 1,
-		  'X-Language' => 'ar',
-		  'X-MerchantNo' => $this->get_option('merchant_id'),
-		  'X-SecretKey' => $this->get_option('secret_key') , 
-		  'Content-Type' => 'application/x-www-form-urlencoded',
-		);
-		$response = wp_remote_post( 
-		  $api_url,
-		  array(
-			'timeout' => 10,
-			'headers' => $headers,
-			'body' => $billing_details,
-			'method' => 'POST',
-		  )
-		);
-		$body = wp_remote_retrieve_body($response);
-		$body = json_decode($body ,true);
-
-		if($body['success'] == true && isset($body['checkoutUrl']) ){
-			return array('id' => $body['checkoutId'] , 'url' => $body['checkoutUrl']);
-		}
-		return false;
-	}
-
-	public function get_api_url($sandbox){
-		return $sandbox === $this->checkbox_true_val ? 'https://sandbox.payzaty.com/payment/checkout' : 'https://www.payzaty.com/payment/checkout';
-	}
 }

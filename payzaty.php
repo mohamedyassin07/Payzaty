@@ -37,6 +37,9 @@ define( 'PAYZATY_PLUGIN_DIR',	plugin_dir_path( PAYZATY_PLUGIN_FILE ) );
 // Plugin Folder URL
 define( 'PAYZATY_PLUGIN_URL',	plugin_dir_url( PAYZATY_PLUGIN_FILE ) );
 
+// Plugin Folder URL
+define( 'CHECKBOX_TRUE_VAL',	'yes' );
+
 /**
  * Load the main class for the core functionality
  */
