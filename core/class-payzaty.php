@@ -10,7 +10,7 @@ if ( ! class_exists( 'Payzaty' ) ) :
 	 * @package		PAYZATY
 	 * @subpackage	Classes/Payzaty
 	 * @since		1.0.0
-	 * @author		PayZaty
+	 * @author		Payzaty
 	 */
 	final class Payzaty {
 
@@ -164,7 +164,7 @@ if ( ! class_exists( 'Payzaty' ) ) :
 	}
 
 	/**
-	* Adds PayZaty Payment Class
+	* Adds Payzaty Payment Class
 	*
 	* @access	public
 	* @since	1.0.0

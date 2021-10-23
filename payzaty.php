@@ -1,17 +1,17 @@
 <?php
 /**
- * PayZaty
+ * Payzaty
  *
  * @package       PAYZATY
- * @author        PayZaty
+ * @author        Payzaty
  * @version       1.0.0
  *
  * @wordpress-plugin
- * Plugin Name:   PayZaty
+ * Plugin Name:   Payzaty
  * Plugin URI:    https://www.payzaty.com
- * Description:   PayZaty WooCommerce plugin
+ * Description:   Payzaty WooCommerce plugin
  * Version:       1.0.0
- * Author:        PayZaty
+ * Author:        Payzaty
  * Author URI:    https://www.payzaty.com
  * Text Domain:   payzaty
  * Domain Path:   /languages
@@ -20,7 +20,7 @@
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 // Plugin name
-define( 'PAYZATY_NAME',			'PayZaty' );
+define( 'PAYZATY_NAME',			'Payzaty' );
 
 // Plugin version
 define( 'PAYZATY_VERSION',		'1.0.0' );
@@ -49,7 +49,7 @@ require_once PAYZATY_PLUGIN_DIR . 'core/class-payzaty.php';
  * The main function to load the only instance
  * of our master class.
  *
- * @author  PayZaty
+ * @author  Payzaty
  * @since   1.0.0
  * @return  object|Payzaty
  */

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @package		PAYZATY
  * @subpackage	Classes/Payzaty_Gate_Way_API_Connecting
- * @author		PayZaty
+ * @author		Payzaty
  * @since		1.0.0
  */
 
@@ -69,7 +69,7 @@ class Payzaty_Gate_Way_API_Connecting  {
 		if( $response['success'] == true && isset($response['checkoutUrl']) ){
 			return array( 'id' => $response['checkoutId'], 'url' => $response['checkoutUrl'], 'checkout_id' => $response['checkoutId'] );
 		}
-		
+
 		return false;
 	}
 

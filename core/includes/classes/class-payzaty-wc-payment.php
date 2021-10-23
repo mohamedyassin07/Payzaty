@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @package		PAYZATY
  * @subpackage	Classes/Payzaty_WC_Payment
- * @author		PayZaty
+ * @author		Payzaty
  * @since		1.0.0
  */
 
@@ -30,8 +30,8 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 		$this->id = 'payzaty';
 		$this->icon = PAYZATY_PLUGIN_URL .'/assets/payzaty-logo.png';
 		$this->has_fields =  false ;
-		$this->method_title = __( 'PayZaty', 'payzaty' );
-		$this->method_description = __( 'PayZaty Gateway Settings', 'payzaty' );
+		$this->method_title = __( 'Payzaty', 'payzaty' );
+		$this->method_description = __( 'Payzaty Gateway Settings', 'payzaty' );
 
 		$this->init_form_fields(); // admin settings page fields
 		
@@ -66,14 +66,14 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 			'enabled' => array(
 				'title' => __( 'Enable/Disable', 'payzaty' ),
 				'type' => 'checkbox',
-				'label' => __( 'Enable PayZaty Payment Gateway', 'payzaty' ),
+				'label' => __( 'Enable Payzaty Payment Gateway', 'payzaty' ),
 				'default' => $this->checkbox_true_val,
 			),
 			'title' => array(
 				'title' => __( 'Title', 'payzaty' ),
 				'type' => 'text',
 				'description' => __( 'This controls the title which will appears in chechout page.', 'payzaty' ),
-				'default' => __( 'PayZaty Payment Gateway', 'payzaty' ),
+				'default' => __( 'Payzaty Payment Gateway', 'payzaty' ),
 			),
 			'sandbox' => array(
 				'title' => __( 'Enable Sandbox', 'payzaty' ),

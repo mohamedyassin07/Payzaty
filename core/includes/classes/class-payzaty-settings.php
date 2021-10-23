@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @package		PAYZATY
  * @subpackage	Classes/Payzaty_Settings
- * @author		PayZaty
+ * @author		Payzaty
  * @since		1.0.0
  */
 class Payzaty_Settings{
