@@ -66,14 +66,14 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 			'enabled' => array(
 				'title' => __( 'Enable/Disable', 'payzaty' ),
 				'type' => 'checkbox',
-				'label' => __( 'Enable Payzaty Payment Gateway', 'payzaty' ),
+				'label' => __( 'Enable Payzaty', 'payzaty' ),
 				'default' => $this->checkbox_true_val,
 			),
 			'title' => array(
 				'title' => __( 'Title', 'payzaty' ),
 				'type' => 'text',
 				'description' => __( 'This controls the title which will appears in chechout page.', 'payzaty' ),
-				'default' => __( 'Payzaty Payment Gateway', 'payzaty' ),
+				'default' => __( 'Payzaty Payment', 'payzaty' ),
 			),
 			'sandbox' => array(
 				'title' => __( 'Enable Sandbox', 'payzaty' ),

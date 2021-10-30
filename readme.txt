@@ -24,5 +24,5 @@ Payzaty woocommerce plugin
 
 == Changelog ==
 
-= 1.0.0: October 23, 2021 =
+= 1.0.0: November 01, 2021 =
 * Birthday of Payzaty
