@@ -6,8 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Class Payzaty_WC_Payment
  *
- * This class contains repetitive functions that
- * are used globally within the plugin.
+ * This class extends the WC_Payment_Gateway Class
+ * to add Payzaty payment method to the woocomerce system
  *
  * @package		PAYZATY
  * @subpackage	Classes/Payzaty_WC_Payment
@@ -56,9 +56,10 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 
 	/**
 	 * Registers WooCommerce Admin Fields
-	 *
+	 * 
 	 * @access	public
 	 * @since	1.0.0
+	 * @return	void
 	 */
 	public function init_form_fields()
 	{
@@ -97,6 +98,8 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 	 *
 	 * @access	public
 	 * @since	1.0.0
+	 * @param	string $order_id is the current order id
+	 * @return	array data of the payment process opened for this order
 	 */
 	public function process_payment( $order_id ) {
 		$billing_details =  $this->billing_details($order_id);
@@ -127,12 +130,10 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 	 * 
 	 * @access public
 	 * @since	1.0.0
-	 * 
 	 * @param	string $order_id is the current order id
-	 * 
 	 * @return	array prepared array of the billings details contains all the required data
 	 */
-	public function billing_details($order_id){
+	public function billing_details( $order_id ){
 		$order = new WC_Order( $order_id );
 
 		return array(
