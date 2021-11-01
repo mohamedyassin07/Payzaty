@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Payzaty\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-30 22:09+0000\n"
+"PO-Revision-Date: 2021-10-30 22:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
+"&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.5; wp-5.8.1\n"
+"X-Domain: payzaty"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:70
+msgid "Enable Payzaty"
+msgstr "تمكين بيزاتي"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:80
+msgid "Enable Sandbox"
+msgstr "تفعيل البيئة التجريبية"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:68
+msgid "Enable/Disable"
+msgstr "تفعيل/تعطيل"
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://www.payzaty.com"
+msgstr "https://www.payzaty.com/en/language/ar"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:86
+msgid "Merchant No"
+msgstr "رقم التاجر"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:108
+msgid "Missing Data"
+msgstr "بيانات ناقصة"
+
+#. Name of the plugin
+#. Author of the plugin
+#: core/includes/classes/class-payzaty-wc-payment.php:33
+#: core/includes/classes/class-payzaty-wc-payment.php:77
+msgid "Payzaty"
+msgstr "بيزاتي"
+
+#: core/includes/classes/class-payzaty-custom-endpoints.php:101
+msgid ""
+"Payzaty reported this payment process as a not completed correctly process"
+msgstr "هذه العملية غير مكملة بعد بشكل صحيح في سجلات بيزاتي"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:34
+msgid "Payzaty Settings"
+msgstr "إعدادات بيزاتي"
+
+#. Description of the plugin
+msgid "Payzaty WooCommerce plugin"
+msgstr "إضافة بيزاتي للووكوميرس"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:82
+msgid ""
+"Sandbox enables a testing environment to test the whole process before you "
+"go production."
+msgstr ""
+"تتيح البيئة التجريبية مناخ وهمي لتجربة عملية الدفع كاملة قبل التحول للربط "
+"الحقيقي مع بيزاتي"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:90
+msgid "Secret Key"
+msgstr "المفتاح السري"
+
+#: core/class-payzaty.php:143
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:116
+msgid "Some things went wrong when connecting to Payzaty, Please try again."
+msgstr "حدث بعض المشاكل اثناء الاتصال مع بيزاتي, من فضلك حاول مجددا"
+
+#: core/includes/classes/class-payzaty-custom-endpoints.php:90
+msgid "Something went wrong"
+msgstr "هناك مشكلة"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:76
+msgid "This controls the title which will appears in chechout page."
+msgstr "تمكنك من إعادة تسمية العنوان الذي يظهر في صفحه الدفع"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:74
+msgid "Title"
+msgstr "العنوان"

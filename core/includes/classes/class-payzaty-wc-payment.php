@@ -31,7 +31,7 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 		$this->icon = PAYZATY_PLUGIN_URL .'/assets/payzaty-logo.png';
 		$this->has_fields =  false ;
 		$this->method_title = __( 'Payzaty', 'payzaty' );
-		$this->method_description = __( 'Payzaty Gateway Settings', 'payzaty' );
+		$this->method_description = __( 'Payzaty Settings', 'payzaty' );
 
 		$this->init_form_fields(); // admin settings page fields
 		
@@ -74,7 +74,7 @@ class Payzaty_WC_Payment extends WC_Payment_Gateway {
 				'title' => __( 'Title', 'payzaty' ),
 				'type' => 'text',
 				'description' => __( 'This controls the title which will appears in chechout page.', 'payzaty' ),
-				'default' => __( 'Payzaty Payment', 'payzaty' ),
+				'default' => __( 'Payzaty', 'payzaty' ),
 			),
 			'sandbox' => array(
 				'title' => __( 'Enable Sandbox', 'payzaty' ),

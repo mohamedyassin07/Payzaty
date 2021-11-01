@@ -1,0 +1,87 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Payzaty\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-30 22:22+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.5; wp-5.8.1\n"
+"X-Domain: payzaty"
+
+#: core/includes/classes/class-payzaty-wc-payment.php:70
+msgid "Enable Payzaty"
+msgstr ""
+
+#: core/includes/classes/class-payzaty-wc-payment.php:80
+msgid "Enable Sandbox"
+msgstr ""
+
+#: core/includes/classes/class-payzaty-wc-payment.php:68
+msgid "Enable/Disable"
+msgstr ""
+
+#: core/includes/classes/class-payzaty-wc-payment.php:86
+msgid "Merchant No"
+msgstr ""
+
+#: core/includes/classes/class-payzaty-wc-payment.php:108
+msgid "Missing Data"
+msgstr ""
+
+#. Name of the plugin
+#. Author of the plugin
+#: core/includes/classes/class-payzaty-wc-payment.php:33
+#: core/includes/classes/class-payzaty-wc-payment.php:77
+msgid "Payzaty"
+msgstr ""
+
+#: core/includes/classes/class-payzaty-custom-endpoints.php:101
+msgid ""
+"Payzaty reported this payment process as a not completed correctly process"
+msgstr ""
+
+#: core/includes/classes/class-payzaty-wc-payment.php:34
+msgid "Payzaty Settings"
+msgstr ""
+
+#. Description of the plugin
+msgid "Payzaty WooCommerce plugin"
+msgstr ""
+
+#: core/includes/classes/class-payzaty-wc-payment.php:82
+msgid ""
+"Sandbox enables a testing environment to test the whole process before you "
+"go production."
+msgstr ""
+
+#: core/includes/classes/class-payzaty-wc-payment.php:90
+msgid "Secret Key"
+msgstr ""
+
+#: core/class-payzaty.php:143
+msgid "Settings"
+msgstr ""
+
+#: core/includes/classes/class-payzaty-wc-payment.php:116
+msgid "Some things went wrong when connecting to Payzaty, Please try again."
+msgstr ""
+
+#: core/includes/classes/class-payzaty-custom-endpoints.php:90
+msgid "Something went wrong"
+msgstr ""
+
+#: core/includes/classes/class-payzaty-wc-payment.php:76
+msgid "This controls the title which will appears in chechout page."
+msgstr ""
+
+#: core/includes/classes/class-payzaty-wc-payment.php:74
+msgid "Title"
+msgstr ""
