@@ -17,8 +17,14 @@
  * Domain Path:   /languages
  */
 
+// Don't work if WooCommerce is not installed or being updating.
+if ( !in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+	return;
+}
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
+
 // Plugin name
 define( 'PAYZATY_NAME',			'Payzaty' );
 
