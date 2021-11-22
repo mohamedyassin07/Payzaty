@@ -8,7 +8,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:   Payzaty
- * Plugin URI:    https://www.payzaty.com
+ * Plugin URI:    https://www.payzaty.com/en/plugin/woocommerce
  * Description:   Payzaty WooCommerce plugin
  * Version:       1.0.0
  * Author:        Payzaty
